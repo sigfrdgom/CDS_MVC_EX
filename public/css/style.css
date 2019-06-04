@@ -8,9 +8,14 @@ body{
     background-color:aliceblue;
 }
 
+a{
+    text-decoration: none white;
+    color: white;
+}
 #header{
-    background-color: lightgrey;
+    background-color: black;
     padding: 2%;
+    width: 100%;
 }
 
 #header ul li{
@@ -23,6 +28,9 @@ body{
     background-color: black;
     padding: 2%;
     color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 #main{
@@ -33,9 +41,21 @@ body{
 
 .center{
     text-align: center;
+    margin: 0% auto;
 }
 
 .error{
     color:red;
+}
+
+.head{
+    color: white;
+    background-color: black;
+    padding: 10px !important;
+}
+
+.cell{
+    padding: 10px !important;
+    border-bottom: solid 1px gray;
 }
 

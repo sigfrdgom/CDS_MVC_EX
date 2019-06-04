@@ -4,7 +4,6 @@
     class App 
     {
         function __construct(){
-            //echo "Hola, maes <br>";
             // Get url
             // $url=$_GET['url']
             $url= isset($_GET['url'])?$_GET['url']:null;
@@ -22,15 +21,41 @@
                 $archivoController="controllers/main.php";
                 require_once $archivoController;
                 $controller = new Main();
+                // charge model main
+                $controller->loadModel('main');
+                $controller->render();
                 return false;
             }else{
                 $archivoController="controllers/".$url[0].".php";
+                if (file_exists($archivoController)) {
+                    require_once $archivoController;
+                    $controller = new $url[0];
+                    $controller->loadModel($url[0]);
+
+                    if (isset($url[1])) {
+                        $controller->{$url[1]}();
+                    }else{
+                        $controller->render();
+                    }
+
+                } else {
+                    $controller = new Errores();
+                }
+                
             }
-            // Validando que el controlador ingresado pertenezca a un arhico de nuestros contraladores, que el controlado exista
+            
+        }
+    }
+    
+
+?>
+
+<!-- // Validando que el controlador ingresado pertenezca a un arhico de nuestros contraladores, que el controlado exista
             if(file_exists($archivoController)){
                 // Se agrega la ubicacion del archivo y se crea una instancia
                 require_once $archivoController;
                 $controller = new $url[0];
+                $controller->loadModel($url[0]);
 
                 // verificamos la existencia del metodo tomando la posicion 1 de la url y comprobando si el metodo existe
                 if (isset($url[1])) {
@@ -45,9 +70,11 @@
                         elseif(isset($url[1]))
                         {
                             $controller->{$url[1]}();
+                        }else{
+                            $controller->render();
                         }
                         
-                        
+                    
                     } else {
                         echo "El metodo no existe amiguito, que estas haciendo?";
                     }
@@ -55,11 +82,6 @@
 
             }else{
                 $controller = new Errores();
-            }
+            } -->
 
             
-        }
-    }
-    
-
-?>

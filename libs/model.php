@@ -4,7 +4,7 @@
     {
         function __construct()
         {
-            
+            $this->db= new Dabatase;
         }
     }
     

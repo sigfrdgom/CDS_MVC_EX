@@ -3,7 +3,7 @@
     <section>
         <ul>
             <li><a href="<?php  constant('URL');?>main">HOME</a></li>
-            <li><a href="<?php  constant('URL');?>alumnoController">ALUMNOS</a></li>
+            <li><a href="<?php  constant('URL');?>alumno">ALUMNOS</a></li>
         </ul>
     </section>
 </div>

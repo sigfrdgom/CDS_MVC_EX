@@ -1,23 +1,23 @@
 <?php
 
-    class dabatase{
-        private $host;
+    class Dabatase{
+        private $server;
         private $db;
         private $user;
         private $password;
         private $charset;
 
         public function __construct(){
-            $this->host=constant('HOST');
+            $this->server=constant('SERVER');
             $this->db=constant('DATABASE');
             $this->user=constant('USER');
             $this->password=constant('PASSWORD');
             $this->charset=constant('CHARSET');
         }
 
-        function connect(){
+        function conn(){
             try {
-                $connection="mysql:host=".$this->host.";dbname=".$this->db.";charset".$this->charset;
+                $connection="mysql:host=".$this->server.";dbname=".$this->db.";charset".$this->charset;
                 $options=[PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION,
                             PDO::ATTR_EMULATE_PREPARES=>false];
                 

@@ -9,7 +9,7 @@
 </head>
 <body>
     <?php require 'views/header.php'; ?>
-        <div id="main">
+        <div id="main" class="center">
             <h1 style="color:green; align:center:">Hola desde el index de main</h1>
         </div>
     <?php require 'views/footer.php'; ?>

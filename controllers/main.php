@@ -6,9 +6,11 @@
         {
             // Agregar el constructor de la clase padre
             parent::__construct();
-            $this->view->render('main/index');
         }
 
+        function render(){
+            $this->view->render('main/index');
+        }
         // function saludo()
         // {
         //     echo "Bienvenido seas al descuajeringe <br>";
