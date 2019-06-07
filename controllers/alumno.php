@@ -32,6 +32,12 @@ class Alumno extends Controller
         // header("Location: $url");
         $this->render();
     }
+
+    function delete($dato=null){
+        $id=$dato[0];
+        $this->model->delete($id);
+        $this->render();
+    }
 }
 
 

@@ -32,6 +32,29 @@
                     $controller = new $url[0];
                     $controller->loadModel($url[0]);
 
+                    // obtain quantity of parameters of url in index 2 
+                    $nparam=sizeof($url);
+
+                    if ($nparam>1) {
+                        
+                        if ($nparam>2) {
+                            $param=[];    
+                            for ($i=2; $i < $nparam ; $i++) { 
+                                array_push($param,$url[$i]);
+                            }
+                            //lamado al metodo con parametros
+                            $controller->{$url[1]}($param);
+                        }else{
+                            $controller->{$url[1]}();
+                        }
+                        
+                    } else {
+                        $controller->render();
+                    }
+                    
+
+
+                    // Verify if exist the method
                     if (isset($url[1])) {
                         $controller->{$url[1]}();
                     }else{

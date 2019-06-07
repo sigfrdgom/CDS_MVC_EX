@@ -50,6 +50,24 @@ class AlumnoModel extends Model
             
         }
     }
+
+    // A function to insert row in a database
+    function delete($param){
+        
+        try {
+            
+            $query=$this->db->conn()->prepare("DELETE FROM alumno WHERE id_alumno=:id;");  
+            $query->execute(['id'=>$param]);  
+            return true;
+
+        } catch (PDOException $pdo) {
+            
+            echo "Ocurrio un error en el delete";
+            return false;
+
+        }
+
+    }
 }
 
 

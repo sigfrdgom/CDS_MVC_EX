@@ -39,7 +39,7 @@
                                 <td class='cell'> $alm->telefono </td>
                                 <td class='cell'>
                                     <a class='btn-e' href=''>EDITAR</a>
-                                    <a class='btn-d' href=''>ELIMINAR</a> 
+                                    <a class='btn-d' href='".constant('URL')."alumno/delete/".$alm->id."' title='¿Desea eliminar el registro?'>ELIMINAR</a> 
                                 </td>
                             </tr>";
                         }
