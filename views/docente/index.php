@@ -1,0 +1,1 @@
+<!-- el conjunto de vistas de una entidad, estas son las vistas del sistema -->

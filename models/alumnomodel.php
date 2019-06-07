@@ -1,5 +1,6 @@
 <?php
 
+require_once "alumnos.php";
 class AlumnoModel extends Model
 {
     public function __construct(Type $var = null)
@@ -8,8 +9,21 @@ class AlumnoModel extends Model
 
     }
     // A function to insert row in a database
-    function insert(){
-        echo "Test to insert data";
+    function insert($data){
+        
+        try {
+            
+            $query=$this->db->conn()->prepare("INSERT INTO alumno(nombre,apellido,telefono) VALUES(:nombre,:apellido,:telefono);");  
+            $query->execute(['nombre'=>$data['nombre'],'apellido'=>$data['apellido'],'telefono'=>$data['telefono']]);  
+            return true;
+
+        } catch (PDOException $pdo) {
+            
+            echo "Ocurrio un error en el insert";
+            return false;
+
+        }
+
     }
 
     // Find registers from database
@@ -19,7 +33,9 @@ class AlumnoModel extends Model
         try {
             $query=$this->db->conn()->query("SELECT * FROM alumno");    
             while ($row=$query->fetch()) {
-                $item=new Alumno;
+               
+                //Crear objeto de la clase alumnos//
+                $item=new Alumnos();
                 $item->id=$row['id_alumno'];
                 $item->nombre=$row['nombre'];
                 $item->apellido=$row['apellido'];

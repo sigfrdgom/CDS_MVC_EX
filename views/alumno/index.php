@@ -8,10 +8,12 @@
 </head>
 <body>
 <?php require 'views/header.php'; ?>
-       <div id="main" class="center">
-            <h1>Alumnos</h1>
-           
-        </div>
+    
+    <div id="main" class="center"><h1>Listado de Alumnos</h1>
+        <a href="<?php echo constant('URL')?>alumno/newRegister" class='btn-a' >NUEVO ALUMNO</a>
+    </div>
+
+
       <div id="main" class="center">
            <table class="table">
                 <thead >
@@ -27,7 +29,7 @@
                     <?php
                         include_once 'models/alumnos.php';
                         foreach ($this->alumnos as $item) {
-                            $alm=new Alumno();
+                            $alm=new Alumnos();
                             $alm=$item;
                             echo "
                             <tr>
@@ -35,7 +37,10 @@
                                 <td class='cell'> $alm->nombre </td>
                                 <td class='cell'> $alm->apellido </td>
                                 <td class='cell'> $alm->telefono </td>
-                                <td class='cell'> EDIT DELETE </td>
+                                <td class='cell'>
+                                    <a class='btn-e' href=''>EDITAR</a>
+                                    <a class='btn-d' href=''>ELIMINAR</a> 
+                                </td>
                             </tr>";
                         }
                     ?>
@@ -46,7 +51,5 @@
        </div>
        
 <?php require 'views/footer.php'; ?>
-
-    
 </body>
 </html>

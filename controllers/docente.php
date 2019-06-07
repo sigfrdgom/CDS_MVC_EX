@@ -1,0 +1,1 @@
+<!-- Asi en singular va el nombre del controlador que haremos, iniciando en imunsculas y en singular -->

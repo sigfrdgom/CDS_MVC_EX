@@ -5,17 +5,22 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color:aliceblue;
+    background-color:lightslategray;
 }
 
 a{
     text-decoration: none white;
     color: white;
 }
+
+table{
+    background-color: aliceblue;
+    border-radius: 5px;
+}
 #header{
     background-color: black;
     padding: 2%;
-    width: 100%;
+    width: 96%;
 }
 
 #header ul li{
@@ -30,18 +35,19 @@ a{
     color: white;
     position: absolute;
     bottom: 0;
-    width: 100%;
+    width: 96%;
 }
 
 #main{
     padding: 40px 0;
-    width: 500px;
-    margin: 0 auto;
+    width: 720px;
+    margin: 0% auto;
 }
 
 .center{
-    text-align: center;
-    margin: 0% auto;
+    text-align: center !important;
+    margin: 0% auto !important;
+    justify-content: center !important;
 }
 
 .error{
@@ -52,10 +58,58 @@ a{
     color: white;
     background-color: black;
     padding: 10px !important;
+    border: solid 1px red;
+    font-weight: bolder;
 }
 
 .cell{
     padding: 10px !important;
     border-bottom: solid 1px gray;
 }
+
+.btn-e{
+    height: 35px;
+    width: 70px;
+    color: white;
+    background-color: rgba(255, 166, 0, 0.85);
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.btn-d{
+    height: 35px;
+    width: 70px;
+    color: white;
+    background-color: rgba(255, 68, 0, 0.85);
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.btn-a{
+    height: 35px;
+    width: 70px;
+    color: white;
+    background-color:rgba(0, 128, 0, 0.85);
+    margin: 5px;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+}
+
+.btn-e:hover{
+    background-color: orange;
+}
+
+.btn-d:hover{
+    background-color: orangered;
+}
+
+.btn-a:hover{
+    background-color: green;
+}
+
 
