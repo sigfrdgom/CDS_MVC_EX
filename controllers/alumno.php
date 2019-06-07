@@ -7,6 +7,7 @@ class Alumno extends Controller
     {
         parent::__construct();
         $this->view->alumnos = [];
+        $this->view->alumno="";
     }
 
     // function to show the main interface of the entity
@@ -38,6 +39,19 @@ class Alumno extends Controller
         $this->model->delete($id);
         $this->render();
     }
+
+    function getById($dato=null){
+        $id=$dato[0];
+        $alumno=$this->model->getById($id);
+       
+        //session_start();
+        $_SESSION['id_alumno']=$alumno->id;
+
+        //renderizar la vista de detalle
+        $this->view->alumno=$alumno;
+        $this->view->render('alumno/detalle');
+    }
+
 }
 
 

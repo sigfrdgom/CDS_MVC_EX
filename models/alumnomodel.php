@@ -68,6 +68,29 @@ class AlumnoModel extends Model
         }
 
     }
+
+    function getById($id){
+        $item=new Alumnos();
+
+        try {
+            $query=$this->db->conn()->prepare("SELECT * FROM alumno WHERE id_alumno=:id");
+            $query->execute(['id'=>$id]);    
+            
+            while ($row=$query->fetch()) {
+               
+                $item->id=$row['id_alumno'];
+                $item->nombre=$row['nombre'];
+                $item->apellido=$row['apellido'];
+                $item->telefono=$row['telefono'];
+
+            }
+            return $item;
+        } catch (PDOException $pdo) {
+            echo "la rego $pdo";
+            return [];
+            
+        }
+    }
 }
 
 

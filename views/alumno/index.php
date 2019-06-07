@@ -38,7 +38,7 @@
                                 <td class='cell'> $alm->apellido </td>
                                 <td class='cell'> $alm->telefono </td>
                                 <td class='cell'>
-                                    <a class='btn-e' href=''>EDITAR</a>
+                                    <a class='btn-e' href='".constant('URL')."alumno/getByID/".$alm->id."' title='¿Desea editar el registro?'>EDITAR</a>
                                     <a class='btn-d' href='".constant('URL')."alumno/delete/".$alm->id."' title='¿Desea eliminar el registro?'>ELIMINAR</a> 
                                 </td>
                             </tr>";
