@@ -1,6 +1,6 @@
 <?php
 
-require_once "alumnos.php";
+require_once "models/alumnos.php";
 class AlumnoModel extends Model
 {
     public function __construct(Type $var = null)
@@ -69,44 +69,82 @@ class AlumnoModel extends Model
 
     }
 
+    // function getById($id){
+    //     $item=new Alumnos();
+
+    //     try {
+    //         $query=$this->db->conn()->prepare("SELECT * FROM alumno WHERE id_alumno=:id");
+    //         $query->execute(['id'=>$id]);    
+            
+    //         while ($row=$query->fetch()) {
+               
+    //             $item->id=$row['id_alumno'];
+    //             $item->nombre=$row['nombre'];
+    //             $item->apellido=$row['apellido'];
+    //             $item->telefono=$row['telefono'];
+
+    //         }
+    //         return $item;
+    //     } catch (PDOException $pdo) {
+    //         echo "la rego $pdo";
+    //         return [];
+            
+    //     }
+    // }
+
+    // // A function to insert row in a database
+    // public function update($item){
+        
+    //     try {
+    //         $query=$this->db->conn()->prepare("UPDATE alumno SET nombre=:nombre ,apellido=:apellido, telefono=:telefono WHERE id_alumno=:id");  
+    //         $query->execute(['id'=>$item['id'],
+    //                         'nombre'=>$item['nombre'],
+    //                         'apellido'=>$item['apellido'],
+    //                         'telefono'=>$item['telefono']
+    //                         ]);  
+    //         return true;
+
+    //     } catch (PDOException $pdo) {
+            
+    //         echo "Ocurrio un error en el update $pdo";
+    //         return false;
+
+    //     }
+
+    // }
+
+    //detalle de un registro
     function getById($id){
         $item=new Alumnos();
-
-        try {
-            $query=$this->db->conn()->prepare("SELECT * FROM alumno WHERE id_alumno=:id");
-            $query->execute(['id'=>$id]);    
-            
-            while ($row=$query->fetch()) {
-               
+        $query=$this->db->conn()->prepare('SELECT * FROM ALUMNO WHERE id_alumno=:id');
+        try{
+            $query->execute(['id'=>$id]);
+            while($row=$query->fetch()){
                 $item->id=$row['id_alumno'];
                 $item->nombre=$row['nombre'];
                 $item->apellido=$row['apellido'];
                 $item->telefono=$row['telefono'];
-
             }
             return $item;
-        } catch (PDOException $pdo) {
-            echo "la rego $pdo";
+       }catch(PDOException $e){
             return [];
-            
-        }
+       }
     }
 
-    // A function to insert row in a database
+
+    //metodo update
     public function update($item){
-        
-        try {
-            $query=$this->db->conn()->prepare("UPDATE alumno SET nombre=:nombre ,apellido=:apellido, telefono=:telefono WHERE id_alumno=:id");  
-            $query->execute(['id'=>$item['id'],'nombre'=>$item['nombre'],'apellido'=>$item['apellido'],'telefono'=>$item['telefono']]);  
+        $query=$this->db->conn()->prepare('UPDATE ALUMNO SET nombre=:nombre,apellido=:apellido,telefono=:telefono WHERE id_alumno=:id');
+        try{
+            $query->execute(['id'=>$item['id'],
+                             'nombre'=>$item['nombre'],
+                             'apellido'=>$item['apellido'],
+                             'telefono'=>$item['telefono']
+                             ]);
             return true;
-
-        } catch (PDOException $pdo) {
-            
-            echo "Ocurrio un error en el update $pdo";
+       }catch(PDOException $e){
             return false;
-
-        }
-
+       }
     }
 }
 

@@ -3,15 +3,15 @@
 class Alumno extends Controller
 {
     
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
         $this->view->alumnos = [];
-        $this->view->alumno="";
+        // $this->view->alumno="";
     }
 
     // function to show the main interface of the entity
-    function render(){
+    function index(){
         $alumnos=$this->model->get();
         $this->view->alumnos=$alumnos;
         $this->view->render('alumno/index');
@@ -31,7 +31,7 @@ class Alumno extends Controller
         $this->model->insert(['nombre'=>$nombre , 'apellido'=>$apellido,'telefono'=>$telefono]);
         // $url= constant('URL')."alumno";
         // header("Location: $url");
-        $this->render();
+        $this->index();
     }
 
     function delete($dato=null){
@@ -44,10 +44,8 @@ class Alumno extends Controller
         $id=$dato[0];
         $alumno=$this->model->getById($id);
        
-        //session_start();
+        session_start();
         $_SESSION['id_alumno']=$alumno->id;
-        echo  "--->".$_SESSION['id_alumno'];
-
         //renderizar la vista de detalle
         $this->view->alumno=$alumno;
         $this->view->render('alumno/detalle');
@@ -60,23 +58,24 @@ class Alumno extends Controller
         $nombre= $_POST['nombre'];
         $apellido= $_POST['apellido'];
         $telefono= $_POST['telefono'];
+        
         unset($_SESSION['id_alumno']);
+        $this->model->update(['id'=>$id,'nombre'=>$nombre,'apellido'=>$apellido,'telefono'=>$telefono]);
+        $this->index();
 
-        echo "---------- $id -- $nombre -- $apellido -- $telefono ";
-
-        if ($this->model->update(['id'=>$id,'nombre'=>$nombre , 'apellido'=>$apellido,'telefono'=>$telefono])) {
-           $alumno = new Alumnos();
-           $alumno->id=$id;
-           $alumno->nombre=$nombre;
-           $alumno->apellido=$apellido;
-           $alumno->telefono=$telefono;
-           $this->view->alumno=$alumno;
-           $this->render();
+        // if ($this->model->update(['id'=>$id,'nombre'=>$nombre , 'apellido'=>$apellido,'telefono'=>$telefono])) {
+        //    $alumno = new Alumnos();
+        //    $alumno->id=$id;
+        //    $alumno->nombre=$nombre;
+        //    $alumno->apellido=$apellido;
+        //    $alumno->telefono=$telefono;
+        //    $this->view->alumno=$alumno;
+        //    $this->render();
 
 
-        }else{
-            $this->view->render('errors/index');
-        }
+        // }else{
+        //     $this->view->render('errors/index');
+        // }
         // $url= constant('URL')."alumno";
         // header("Location: $url");
     }
