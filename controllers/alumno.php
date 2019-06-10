@@ -46,10 +46,39 @@ class Alumno extends Controller
        
         //session_start();
         $_SESSION['id_alumno']=$alumno->id;
+        echo  "--->".$_SESSION['id_alumno'];
 
         //renderizar la vista de detalle
         $this->view->alumno=$alumno;
         $this->view->render('alumno/detalle');
+    }
+
+    function update(){
+        // Declare vars para recibir los datos provenientes de la vista(Formulario nuevo)
+        session_start();
+        $id=$_SESSION['id_alumno'];
+        $nombre= $_POST['nombre'];
+        $apellido= $_POST['apellido'];
+        $telefono= $_POST['telefono'];
+        unset($_SESSION['id_alumno']);
+
+        echo "---------- $id -- $nombre -- $apellido -- $telefono ";
+
+        if ($this->model->update(['id'=>$id,'nombre'=>$nombre , 'apellido'=>$apellido,'telefono'=>$telefono])) {
+           $alumno = new Alumnos();
+           $alumno->id=$id;
+           $alumno->nombre=$nombre;
+           $alumno->apellido=$apellido;
+           $alumno->telefono=$telefono;
+           $this->view->alumno=$alumno;
+           $this->render();
+
+
+        }else{
+            $this->view->render('errors/index');
+        }
+        // $url= constant('URL')."alumno";
+        // header("Location: $url");
     }
 
 }

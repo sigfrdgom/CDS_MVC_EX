@@ -62,7 +62,7 @@ class AlumnoModel extends Model
 
         } catch (PDOException $pdo) {
             
-            echo "Ocurrio un error en el delete";
+            echo "Ocurrio un error en el delete $pdo";
             return false;
 
         }
@@ -90,6 +90,23 @@ class AlumnoModel extends Model
             return [];
             
         }
+    }
+
+    // A function to insert row in a database
+    public function update($item){
+        
+        try {
+            $query=$this->db->conn()->prepare("UPDATE alumno SET nombre=:nombre ,apellido=:apellido, telefono=:telefono WHERE id_alumno=:id");  
+            $query->execute(['id'=>$item['id'],'nombre'=>$item['nombre'],'apellido'=>$item['apellido'],'telefono'=>$item['telefono']]);  
+            return true;
+
+        } catch (PDOException $pdo) {
+            
+            echo "Ocurrio un error en el update $pdo";
+            return false;
+
+        }
+
     }
 }
 

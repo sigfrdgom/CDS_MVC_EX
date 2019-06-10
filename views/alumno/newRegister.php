@@ -10,7 +10,7 @@
 <?php require 'views/header.php'; ?>
     
     <div id="main" class="center"><h1>Alumnos</h1></div>
-        <form action="<?php constant('URL');?>insert" method="post">
+        <form action="<?php echo constant('URL');?>alumno/insert" method="post">
 
             <table class="center" style="padding:20px;">
                 <tr>

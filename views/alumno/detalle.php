@@ -10,7 +10,7 @@
 <?php require 'views/header.php'; ?>
     
     <div id="main" class="center"><h1>Alumnos</h1></div>
-        <form action="<?php constant('URL');?>update" method="post">
+        <form action="<?php echo constant('URL');?>alumno/update" method="post">
 
             <table class="center" style="padding:20px;">
                 <tr>
@@ -18,7 +18,7 @@
                         <label for="nombre">Nombre</label>
                     </td>
                     <td>
-                        <input type="text" name="nombre" id="nombre" value="<?php echo $this->alumno->nombre;?>">
+                        <input type="text" name="nombre" value="<?php echo $this->alumno->nombre;?>">
                     </td>
                 </tr>
                 <tr>
@@ -26,7 +26,7 @@
                         <label for="apellido">Apellidos</label>
                     </td>
                     <td>
-                        <input type="text" name="apellido" id="apellido" value="<?php echo $this->alumno->apellido;?>">
+                        <input type="text" name="apellido" value="<?php echo $this->alumno->apellido;?>">
                     </td>
                 </tr>
                 <tr>
@@ -34,7 +34,7 @@
                         <label for="telefono">Telefono</label>
                     </td>
                     <td>
-                        <input type="text" name="telefono" id="telefono" value="<?php echo $this->alumno->telefono;?>">
+                        <input type="text" name="telefono"  value="<?php echo $this->alumno->telefono;?>">
                     </td>
                 </tr>
                 <tr>
