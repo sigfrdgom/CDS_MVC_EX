@@ -13,5 +13,7 @@
             <h1 style="color:green; align:center:">Hola desde el index de main</h1>
         </div>
     <?php require 'views/footer.php'; ?>
+    
 </body>
 </html>
+<link rel="stylesheet" href="<?php echo constant('URL');?>public/css/style.css">

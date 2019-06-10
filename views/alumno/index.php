@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>View Alumnos</title>
+    <script src="<?php echo constant('URL');?>public/js/main.js"></script>
 </head>
 <body>
 <?php require 'views/header.php'; ?>
@@ -15,7 +16,7 @@
 
 
       <div id="main" class="center">
-           <table class="table">
+           <table class="table" id="alumnos">
                 <thead >
                     <tr >
                         <td class="head">ID</td>
@@ -32,14 +33,15 @@
                             $alm=new Alumnos();
                             $alm=$item;
                             echo "
-                            <tr>
+                            <tr id='fila-".$alm->id."'>
                                 <td class='cell'> $alm->id </td>
                                 <td class='cell'> $alm->nombre </td>
                                 <td class='cell'> $alm->apellido </td>
                                 <td class='cell'> $alm->telefono </td>
                                 <td class='cell'>
+                                    <button class='btn-d' onclick='elimina(".$alm->id.")'>Eliminar</button>
                                     <a class='btn-e' href='".constant('URL')."alumno/getById/".$alm->id."' title='¿Desea editar el registro?'>EDITAR</a>
-                                    <a class='btn-d' href='".constant('URL')."alumno/delete/".$alm->id."' title='¿Desea eliminar el registro?'>ELIMINAR</a> 
+                                    
                                 </td>
                             </tr>";
                         }

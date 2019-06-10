@@ -1,6 +1,6 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-header('Content-Type: application/json');
+// header('Access-Control-Allow-Origin: *');
+// header('Content-Type: application/json');
 class Alumno extends Controller
 {
     
@@ -37,8 +37,9 @@ class Alumno extends Controller
 
     function delete($dato=null){
         $id=$dato[0];
-        $this->model->delete($id);
-        $this->render();
+        // $this->model->delete($id);
+        // $this->render();
+        echo $id;
     }
 
     function getById($dato=null){
@@ -88,6 +89,7 @@ class Alumno extends Controller
 
     // Function to read registers from database, return JSON format
     // Funcion para leer registro de la base de datos, retorna en formato JSON
+    
     function read(){
         echo json_encode($this->model->read());
     }
@@ -100,6 +102,4 @@ class Alumno extends Controller
     }
 
 }
-
-
 ?>
