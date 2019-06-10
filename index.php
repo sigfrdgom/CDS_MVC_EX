@@ -1,5 +1,3 @@
-<!-- Buenas practicas? -->
-
 <?php 
 // Importamos lo requerido para trabajar
     require_once 'config/config.php';

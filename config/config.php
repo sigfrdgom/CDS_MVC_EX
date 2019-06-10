@@ -6,4 +6,5 @@
     define('USER','root');
     define('PASSWORD','');
     define('CHARSET','utf8mb4');
+    define('API_KEY','1234567890');
 ?>
