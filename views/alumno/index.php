@@ -12,7 +12,9 @@
 <?php require 'views/header.php'; ?>
     
     <div id="main" class="center"><h1>Listado de Alumnos</h1>
-        <a href="<?php echo constant('URL')?>alumno/newRegister" class='btn-a' >NUEVO ALUMNO</a>
+        <!-- <a href="<
+            ?php echo constant('URL')?>alumno/newRegister" class='btn-a' >NUEVO ALUMNO</a> -->
+        <button onclick="document.getElementById('id01').style.display='block'" class="btn-a btn-especial">Nuevo alumno</button>
     </div>
 
 
@@ -42,7 +44,8 @@
                                 <td class='cell'> $alm->telefono </td>
                                 <td class='cell'>
                                     <button class='btn-d' onclick='elimina(".$alm->id.")'>Eliminar</button>
-                                    <a class='btn-e' href='".constant('URL')."alumno/getById/".$alm->id."' title='¿Desea editar el registro?'>EDITAR</a>
+                                    <button onclick=\"document.getElementById('id01').style.display='block'; getById(".$alm->id.")\" class='btn-e'>Editar</button>
+                                    
                                     
                                 </td>
                             </tr>";
@@ -54,6 +57,57 @@
 
            </table>
        </div>
+<!-- <a class='btn-e' href='".constant('URL')."alumno/getById/".$alm->id."' title='¿Desea editar el registro?'>EDITAR</a> -->
+  <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
+
+<div id="id01" class="w3-modal">
+<div class="w3-modal-content">
+    <div class="w3-container">
+    <!-- <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span> -->
+    <h3 style="text-align: center">Agregar / Modificar alumno</h3>
+ 
+    <form action="<?php echo constant('URL');?>alumno/insert" method="post">
+
+        <table class="center" style="padding:20px;">
+            <tr>
+                <td style="padding:10px;">
+                    <label for="nombre">Nombre</label>
+                </td>
+                <td>
+                    <input type="text" name="nombre" id="nombre" required>
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:10px;">
+                    <label for="apellido">Apellidos</label>
+                </td>
+                <td>
+                    <input type="text" name="apellido" id="apellido" required value="<?php echo $this->alumno->nombre;?>">
+                </td>
+            </tr>
+            <tr>
+                <td style="padding:10px;">
+                    <label for="telefono">Telefono</label>
+                </td>
+                <td>
+                    <input type="text" name="telefono" id="telefono" required>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align: center;" colspan="2">
+                    <input type="submit" value="Guardar" class="btn-a">
+                    <input type="reset" class="btn-d" onclick="document.getElementById('id01').style.display='none'" value="Salir">
+                    <!-- <a class="btn-d" onclick="document.getElementById('id01').style.display='none'">Cancelar</a> -->
+                    <!-- <a href="<?php echo constant('URL')?>alumno" class="btn-d">CANCELAR</a> -->
+                </td>
+
+            </tr>
+        </table>
+
+    </form>
+    </div>
+</div>
+</div>
        
 <?php require 'views/footer.php'; ?>
 </body>

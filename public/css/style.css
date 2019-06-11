@@ -16,11 +16,13 @@ a{
 table{
     background-color: aliceblue;
     border-radius: 5px;
+    margin: 0% auto;
+    width: 50%;
 }
 #header{
     background-color: black;
     padding: 2%;
-    width: 96%;
+    width: 100%;
 }
 
 #header ul li{
@@ -33,14 +35,14 @@ table{
     background-color: black;
     padding: 2%;
     color: white;
-    position: absolute;
+    position: relative;
     bottom: 0;
-    width: 96%;
+    width: 100%;
 }
 
 #main{
     padding: 40px 0;
-    width: 720px;
+    width: 90%;
     margin: 0% auto;
 }
 
@@ -69,7 +71,7 @@ table{
 
 .btn-e{
     height: 35px;
-    width: 70px;
+    width: 100px;
     color: white;
     background-color: rgba(255, 166, 0, 0.85);
     margin: 5px;
@@ -80,7 +82,7 @@ table{
 
 .btn-d{
     height: 35px;
-    width: 70px;
+    width: 100px;
     color: white;
     background-color: rgba(255, 68, 0, 0.85);
     margin: 5px;
@@ -91,13 +93,18 @@ table{
 
 .btn-a{
     height: 35px;
-    width: 70px;
+    width: 100px;
     color: white;
     background-color:rgba(0, 128, 0, 0.85);
     margin: 5px;
     padding: 5px;
     border: none;
     border-radius: 3px;
+}
+
+.btn-especial{
+    height: 35px;
+    width: 150px;
 }
 
 .btn-e:hover{
