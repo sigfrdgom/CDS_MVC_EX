@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>View Alumnos</title>
-    <script src="<?php echo constant('URL');?>public/js/main.js"></script>
+    <!-- <script src="<
+        ?php echo constant('URL');?>public/js/main.js"></script> -->
 </head>
 <body>
 <?php require 'views/header.php'; ?>
@@ -17,7 +18,7 @@
 
       <div id="main" class="center">
            <table class="table" id="alumnos">
-                <thead >
+                <thead id="header" >
                     <tr >
                         <td class="head">ID</td>
                         <td class="head">NOMBRE</td>
@@ -26,7 +27,8 @@
                         <td class="head">OPCIONES</td>
                     </tr>
                 </thead>
-                <tbody>
+                <div id="cont">
+                <tbody id="listaAlumnos">
                     <?php
                         include_once 'models/alumnos.php';
                         foreach ($this->alumnos as $item) {
@@ -48,6 +50,7 @@
                     ?>
                     
                 </tbody>
+                </div>
 
            </table>
        </div>

@@ -37,9 +37,9 @@ class Alumno extends Controller
 
     function delete($dato=null){
         $id=$dato[0];
-        // $this->model->delete($id);
+        $this->model->delete($id);
         // $this->render();
-        echo $id;
+        echo "se elimino",$id;
     }
 
     function getById($dato=null){

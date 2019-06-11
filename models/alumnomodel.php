@@ -49,6 +49,30 @@ class AlumnoModel extends Model
         }
     }
 
+    function get2()
+    {
+        $items=[];
+        try {
+            $query=$this->db->conn()->query("SELECT * FROM alumno");    
+            while ($row=$query->fetch()) {
+                // Make a alumnos object fom alumnos class
+                // Crear objeto de la clase alumnos//
+                $item=new Alumnos();
+                $item->id=$row['id_alumno'];
+                $item->nombre=$row['nombre'];
+                $item->apellido=$row['apellido'];
+                $item->telefono=$row['telefono'];
+                // Ingresamos cada item dentro del arreglo
+                array_push($items,$item);
+            }
+            return $items;
+        } catch (PDOException $pdo) 
+        {
+            echo "Ocurrio un error en la obtencion debido a: ". $pdo->getMessage();
+            return [];   
+        }
+    }
+
     // A function to delete row in a database
     // Una funcion para eliminar una registro de la base de datos
     function delete($param){
