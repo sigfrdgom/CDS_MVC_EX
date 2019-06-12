@@ -55,7 +55,7 @@
 
     </div>
     </div>
-       <div id="resp"></div>
+       <div id="resp" style="text-align: center"></div>
     
 <?php require 'views/footer.php'; ?>
 </body>

@@ -1,20 +1,19 @@
 var ruta = 'http://localhost/mvc/';
 
 
-
 function elimina(idAlumno) {
 var r = confirm("¿Desea eliminar este registro? "+ idAlumno);
   if (r == true) {
     
-    var req=ruta+"alumno/delete/"+idAlumno;
-      httpRequest(req, function(){
-        console.log(this.responseText);
-        console.log(req);
+    $.ajax({                        
+      type: "POST",                 
+      url: ruta+"alumno/delete/"+idAlumno,                     
+      success: function(data)             
+      {
         $("#alumnos").load(ruta+"alumno/ thead#header,tbody#listaAlumnos");
-
         alert("El alumno con id_alumno: "+idAlumno+" fue eliminado");
-      });
-   
+      }
+    });
   } else {
     alert("Cancelo");
   }
@@ -35,18 +34,26 @@ function update() {
 
   }
 
-function httpRequest(url,callback){
-  const http = new XMLHttpRequest();
-  http.open("GET", url);
-  http.send();
+// function httpRequest(url,callback){
+//   const http = new XMLHttpRequest();
+//   http.open("GET", url);
+//   http.send();
 
-  http.onreadystatechange= function(){
-    if (this.readyState == 4 && this.status == 200) {
-        callback.apply(http);
-    } 
-  }
-}
+//   http.onreadystatechange= function(){
+//     if (this.readyState == 4 && this.status == 200) {
+//         callback.apply(http);
+//     } 
+//   }
+// }
 
+// var req=ruta+"alumno/delete/"+idAlumno;
+    //   httpRequest(req, function(){
+    //     console.log(this.responseText);
+    //     console.log(req);
+    //     $("#alumnos").load(ruta+"alumno/ thead#header,tbody#listaAlumnos");
+
+    //     alert("El alumno con id_alumno: "+idAlumno+" fue eliminado");
+    //   });
 
 // const botones = document.querySelectorAll('.delete');
 //   console.log("HOLA");

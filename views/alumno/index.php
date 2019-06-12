@@ -12,9 +12,9 @@
 <?php require 'views/header.php'; ?>
     
     <div id="main" class="center"><h1>Listado de Alumnos</h1>
-        <!-- <a href="<
-            ?php echo constant('URL')?>alumno/newRegister" class='btn-a' >NUEVO ALUMNO</a> -->
-        <button onclick="document.getElementById('id01').style.display='block'" class="btn-a btn-especial">Nuevo alumno</button>
+        <a href="<?php echo constant('URL')?>alumno/newRegister" class='btn-a btn-especial' >NUEVO ALUMNO</a>
+        <!-- <p>¿O con modal?</p> -->
+        <!-- <button onclick="document.getElementById('id01').style.display='block'" class="btn-a btn-especial">Nuevo alumno</button> -->
     </div>
 
 
@@ -55,9 +55,9 @@
 
            </table>
        </div>
-<!-- <a class='btn-e' href='".constant('URL')."alumno/getById/".$alm->id."' title='¿Desea editar el registro?'>EDITAR</a> -->
-  <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
-  <!-- <button onclick=\"document.getElementById('id01').style.display='block'; getById(".$alm->id.")\" class='btn-e'>Editar</button> -->
+    <!-- <a class='btn-e' href='".constant('URL')."alumno/getById/".$alm->id."' title='¿Desea editar el registro?'>EDITAR</a> -->
+    <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
+    <!-- <button onclick=\"document.getElementById('id01').style.display='block'; getById(".$alm->id.")\" class='btn-e'>Editar</button> -->
 
 <div id="id01" class="w3-modal">
 <div class="w3-modal-content">

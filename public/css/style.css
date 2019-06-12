@@ -5,7 +5,7 @@
 
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color:lightslategray;
+    background-color:lightblue;
 }
 
 a{
@@ -78,6 +78,7 @@ table{
     padding: 5px;
     border: none;
     border-radius: 3px;
+    display:inline-block;
 }
 
 .btn-d{
@@ -89,6 +90,7 @@ table{
     padding: 5px;
     border: none;
     border-radius: 3px;
+    display:inline-block;
 }
 
 .btn-a{
@@ -100,6 +102,7 @@ table{
     padding: 5px;
     border: none;
     border-radius: 3px;
+    display:inline-block;
 }
 
 .btn-especial{
@@ -118,5 +121,7 @@ table{
 .btn-a:hover{
     background-color: green;
 }
-
+.derecha{
+    text-align: right;
+}
 
