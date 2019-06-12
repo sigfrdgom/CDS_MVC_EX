@@ -44,9 +44,7 @@
                                 <td class='cell'> $alm->telefono </td>
                                 <td class='cell'>
                                     <button class='btn-d' onclick='elimina(".$alm->id.")'>Eliminar</button>
-                                    <button onclick=\"document.getElementById('id01').style.display='block'; getById(".$alm->id.")\" class='btn-e'>Editar</button>
-                                    
-                                    
+                                    <a class='btn-e' style='display:inline-block;'  href='".constant('URL')."alumno/getById/".$alm->id."' title='¿Desea editar el registro?'>EDITAR</a> 
                                 </td>
                             </tr>";
                         }
@@ -59,6 +57,7 @@
        </div>
 <!-- <a class='btn-e' href='".constant('URL')."alumno/getById/".$alm->id."' title='¿Desea editar el registro?'>EDITAR</a> -->
   <!-- <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Modal</button> -->
+  <!-- <button onclick=\"document.getElementById('id01').style.display='block'; getById(".$alm->id.")\" class='btn-e'>Editar</button> -->
 
 <div id="id01" class="w3-modal">
 <div class="w3-modal-content">
@@ -82,7 +81,7 @@
                     <label for="apellido">Apellidos</label>
                 </td>
                 <td>
-                    <input type="text" name="apellido" id="apellido" required value="<?php echo $this->alumno->nombre;?>">
+                    <input type="text" name="apellido" id="apellido" required >
                 </td>
             </tr>
             <tr>
@@ -107,6 +106,9 @@
     </form>
     </div>
 </div>
+</div>
+<div id="contenedor">
+
 </div>
        
 <?php require 'views/footer.php'; ?>

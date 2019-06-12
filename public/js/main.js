@@ -1,5 +1,7 @@
 var ruta = 'http://localhost/mvc/';
 
+
+
 function elimina(idAlumno) {
 var r = confirm("¿Desea eliminar este registro? "+ idAlumno);
   if (r == true) {
@@ -18,13 +20,19 @@ var r = confirm("¿Desea eliminar este registro? "+ idAlumno);
   }
 }
 
-function getById(idAlumno) {
-  var req=ruta+"alumno/getById/"+idAlumno;
-        httpRequest(req, function(){
-          console.log(req);
-          $("#id01").load(ruta+"alumno/ div#id01");
-          setTimeOut(document.getElementById('id01').style.display='block', 10500)
-        });
+
+function update() {
+      console.log("Hola");
+        $.ajax({                        
+           type: "POST",                 
+           url: ruta+"alumno/update",                     
+           data: $("#guardar_update").serialize(), 
+           success: function(data)             
+           {
+             $('#resp').html("Completado con exito"); 
+           }
+       });
+
   }
 
 function httpRequest(url,callback){
@@ -36,7 +44,6 @@ function httpRequest(url,callback){
     if (this.readyState == 4 && this.status == 200) {
         callback.apply(http);
     } 
-
   }
 }
 
@@ -83,3 +90,4 @@ function httpRequest(url,callback){
     //       }
     //     }
     //   });
+    

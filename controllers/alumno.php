@@ -50,7 +50,7 @@ class Alumno extends Controller
         $_SESSION['id_alumno']=$alumno->id;
         //renderizar la vista de detalle
         $this->view->alumno=$alumno;
-        //$this->view->render('alumno/detalle');
+        $this->view->render('alumno/detalle');
     }
 
     function update(){
