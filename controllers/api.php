@@ -7,15 +7,6 @@ class Api extends Controller
     public function __construct()
     {
         parent::__construct();
-        $this->view->alumnos = [];
-        // $this->view->alumno="";
-    }
-
-    // function to show the main interface of the entity
-    function index(){
-        $alumnos=$this->model->get();
-        $this->view->alumnos=$alumnos;
-        $this->view->render('alumno/index');
     }
 
     // 
